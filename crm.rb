@@ -19,7 +19,7 @@ class CRM
       puts "[2] Modify existing contact"
       puts "[3] Delete a contact"
       puts "[4] Display all the contacts"
-      puts "[5] Display an attribute"
+      puts "[5] Display an attribute for all contacts"
       puts "[6] Display contact"
       puts "[7] Exit"
       puts "Enter a selection"
@@ -65,53 +65,65 @@ class CRM
 
 
 
-  def modify_contact
-    contact = find_contact
-        print "Modify #{contact.first_name}? (Y or N)"
-        y_or_n = gets.chomp.capitalize
-        if y_or_n == "Y"
-          puts "Enter number to select attribute to modify: "
-          puts "[1] First Name "
-          puts "[2] Last Name "
-          puts "[3] Email "
-          puts "[4] Note "
-          selection = gets.chomp.to_i
-           case selection
-             when 1
-                puts "Enter new first name: "
-                contact.first_name = gets.chomp.capitalize
-              when 2
-                puts "Enter new last name: "
-                contact.last_name = gets.chomp.capitalize
-              when 3
-                puts "Enter new email: "
-                contact.email = gets.chomp.capitalize
-              when 4
-                puts "Enter new note: "
-                contact.note = gets.chomp.capitalize
+    def modify_contact
+      contact = find_contact
+          print "Modify #{contact.first_name}? (Y or N)"
+          y_or_n = gets.chomp.capitalize
+          if y_or_n == "Y"
+            puts "Enter number to select attribute to modify: "
+            puts "[1] First Name "
+            puts "[2] Last Name "
+            puts "[3] Email "
+            puts "[4] Note "
+            selection = gets.chomp.to_i
+             case selection
+               when 1
+                  puts "Enter new first name: "
+                  contact.first_name = gets.chomp.capitalize
+                when 2
+                  puts "Enter new last name: "
+                  contact.last_name = gets.chomp.capitalize
+                when 3
+                  puts "Enter new email: "
+                  contact.email = gets.chomp.capitalize
+                when 4
+                  puts "Enter new note: "
+                  contact.note = gets.chomp.capitalize
+              end
+            else return
             end
-          else return
-          end
-      end
+        end
 
-  def delete_contact
-    print "Enter id of contact to delete: "
-    contact_id = gets.chomp.to_i
-    contact = @rolodex.find(contact_id)
-    puts contact.to_s
-    @rolodex.delete(contact)
-    puts "Contact has been deleted. "
-  end
+    def delete_contact
+      print "Enter id of contact to delete: "
+      contact_id = gets.chomp.to_i
+      contact = @rolodex.find(contact_id)
+      puts contact.to_s
+      @rolodex.delete(contact)
+      puts "Contact has been deleted. "
+    end
 
-  def display_all
-    @rolodex.display_each
-  end
+    def display_all
+      @rolodex.display_each
+    end
 
-  def display_contact
-    puts "Enter contact to display: "
-    contact_id = gets.chomp.to_i
-    @rolodex.display_specific_contact(contact_id)
-  end
+    def display_contact
+      puts "Enter contact to display: "
+      contact_id = gets.chomp.to_i
+      @rolodex.display_specific_contact(contact_id)
+    end
+
+    def display_by_attribute
+      puts "Enter an attribute to view for all contacts: "
+      puts "[1] First Name "
+      puts "[2] Last Name "
+      puts "[3] Email "
+      puts "[4] Notes "
+      attribute = gets.chomp.to_i
+      @rolodex.display_info_by_attribute(attribute)
+
+    end
+
 end
 
 
