@@ -10,10 +10,10 @@ class Contact
   end
 
   def to_s
-    print "First Name: #{first_name}"
-    print "Last Name: #{last_name}"
-    print "Email: #{email}"
-    print "Note: #{note}"
+    print "First Name: #{first_name} "
+    print "Last Name: #{last_name} "
+    print "Email: #{email} "
+    print "Note: #{note} "
   end
 
 

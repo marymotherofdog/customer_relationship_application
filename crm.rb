@@ -89,7 +89,7 @@ class CRM
                 contact.note = gets.chomp.capitalize
             end
           else print "I'm sorry, Dave. I'm afraid I can't do that."
-        end
+          end
       end
 
   def delete_contact
@@ -98,8 +98,11 @@ class CRM
     contact = @rolodex.find(contact_id)
     puts contact.to_s
     @rolodex.delete(contact)
-    print "Contact has been deleted. "
-    main_menu
+    puts "Contact has been deleted. "
+  end
+
+  def display_all
+    @rolodex.display_each
   end
 end
 

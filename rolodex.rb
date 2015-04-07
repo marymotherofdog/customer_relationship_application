@@ -17,6 +17,14 @@ class Rolodex
     end
   end
 
+def delete(contact_id)
+  @contacts.delete(contact_id)
+end
 
+def display_each
+  @contacts.each do |contact|
+    contact.to_s
+  end
+end
 
 end
