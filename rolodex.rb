@@ -17,14 +17,19 @@ class Rolodex
     end
   end
 
-def delete(contact_id)
-  @contacts.delete(contact_id)
-end
+  def delete(contact_id)
+    @contacts.delete(contact_id)
+  end
 
-def display_each
-  @contacts.each do |contact|
+  def display_each
+    @contacts.each do |contact|
+      contact.to_s
+    end
+  end
+
+  def display_specific_contact(specific_contact)
+    contact = self.find(specific_contact)
     contact.to_s
   end
 end
 
-end

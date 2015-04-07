@@ -14,6 +14,7 @@ class Contact
     print "Last Name: #{last_name} "
     print "Email: #{email} "
     print "Note: #{note} "
+    print "id: #{id}"
   end
 
 

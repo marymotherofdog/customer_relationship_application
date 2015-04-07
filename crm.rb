@@ -20,7 +20,8 @@ class CRM
       puts "[3] Delete a contact"
       puts "[4] Display all the contacts"
       puts "[5] Display an attribute"
-      puts "[6] Exit"
+      puts "[6] Display contact"
+      puts "[7] Exit"
       puts "Enter a selection"
     end
 
@@ -31,7 +32,8 @@ class CRM
       delete_contact if selection == 3
       display_all if selection == 4
       display_by_attribute if selection == 5
-      exit if selection == 6
+      display_contact if selection == 6
+      exit if selection == 7
     end
 
     def main_menu
@@ -88,7 +90,7 @@ class CRM
                 puts "Enter new note: "
                 contact.note = gets.chomp.capitalize
             end
-          else print "I'm sorry, Dave. I'm afraid I can't do that."
+          else return
           end
       end
 
@@ -103,6 +105,12 @@ class CRM
 
   def display_all
     @rolodex.display_each
+  end
+
+  def display_contact
+    puts "Enter contact to display: "
+    contact_id = gets.chomp.to_i
+    @rolodex.display_specific_contact(contact_id)
   end
 end
 
